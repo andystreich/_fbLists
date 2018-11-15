@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lists</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.5.6/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need
+    <script defer src="/__/firebase/5.5.6/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.5.6/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.5.6/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.5.6/firebase-storage.js"></script>
+    -->
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">-->
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.css">
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.structure.css">
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.theme.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="andy.css">
+    <script src="main.js"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <!-- ======================================================================================================== -->
+      <div  id="left-nav">
+        <div id="button">
+          <!--            <ul>
+                          <li><a href="#about">about</a></li>
+                          <li><a href="#jsonSource">json source</a></li>
+                      </ul>
+           -->
+          <ul id="lists-jumplist">
+            <!-- li menu items go here, each displays a list in the main area -->
+          </ul>
+        </div>
+      </div>
+      <!-- ======================================================================================================== -->
+      <main>
+      </main>
+      <div id="right-sidebar">
+
+      </div>
+      <!-- ======================================================================================================== -->
+
+      <!-- ======================================================================================================== -->
+      <div id="list-container" hidden>
+
+        <div class="list" id="l4nt"  data-menu-text="4 Truths">
+          <div class="simple">
+            <h3>4 Noble Truths</h3>
+            <ol>
+              <li>Suffering exists.</li>
+              <li>Suffering is caused by clinging.</li>
+              <li>Suffering can end.</li>
+              <li>The Noble Eightfold Path leads to the end of suffering.</li>
+            </ol>
+          </div>
+          <div class="common" data-menu-text="4 Noble Truths">
+            <h3>The Four Noble Truths</h3>
+            <ol>
+              <li><span class="pali">Dukkha</span> exists &#8211; unsatisfactoriness, suffering, discontent,
+                stress
+                (to be
+                Investigated)
+              </li>
+              <li>The cause or origin of <span class="pali">dukkha </span>is craving (<span
+                      class="pali">tanha</span>-lit.
+                thirst) or clinging (to be
+                Abandoned)
+              </li>
+              <li><span class="pali">Dukkha</span> ceases with the relinquishment of that craving (to be
+                Realized)
+              </li>
+              <li>The path leading to the cessation of <span class="pali">dukkha</span> is the Noble Eightfold
+                Path
+                (to be Developed)
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="ln8fp" data-menu-text="8-fold Path">
+          <div class="simple" data-menu-text="8-fold Path">
+            <h3>8-fold Path</h3>
+            <ol>
+              <li>Understanding: study the Four Noble Truths.</li>
+              <li>Attitude: cultivate renunciation, loving-kindness, and non-harming.</li>
+              <li>Speech: speak truthfully, usefully, and kindly.</li>
+              <li>Action: don't kill or steal; don't misuse your sexuality.</li>
+              <li>Livelihood: don't make a living from dishonest or harmful means.</li>
+              <li>Effort: practice avoiding unskillful and developing skillful qualities.</li>
+              <li>Mindfulness: practice mindfulness meditation.</li>
+              <li>Concentration: practice concentration meditation.</li>
+            </ol>
+          </div>
+          <div class="common" data-menu-text="Eight-fold Path">
+            <h3>The Noble Eightfold Path (<span class="pali">ariya-magga</span>)</h3>
+
+            <h4>Wisdom/Discernment (<span class="pali">pañña</span>)</h4>
+            <ol>
+              <li>Right View/Understanding (<span class="pali">samma-ditthi</span>) &#8211; Knowledge
+                of
+                the
+                Four Noble Truths
+              </li>
+              <li>Right Intention/Resolve (<span class="pali">sammá-sankappa</span>) – Renunciation,
+                Loving-kindness,
+                Harmlessness
+              </li>
+            </ol>
+            <h4>Virtue (<span class="pali">sila</span>)</h4>
+            <ol start="3">
+              <li>Right Speech (<span class="pali">sammá-vácá</span>) &#8211; abstaining from lying,
+                malicious
+                or divisive
+                speech, abusive or harsh speech, and idle chatter
+              </li>
+              <li>Right Action (<span class="pali">sammá-kammanta</span>) &#8211; abstaining from
+                killing,
+                stealing and sexual
+                misconduct
+              </li>
+              <li>Right Livelihood (<span class="pali">sammá</span>&#8211;<span
+                      class="pali">ájíva</span>)
+                &#8211; abstaining from dishonest and
+                harmful means of livelihood
+              </li>
+            </ol>
+            <h4>Concentration/Meditation (<span class="pali">samadhi)</span></h4>
+            <ol start="6">
+              <li>Right Effort (<span class="pali">samma-vayama</span>) &#8211; the effort of avoiding
+                and
+                overcoming
+                unskillful qualities, and of developing and maintaining skillful qualities
+              </li>
+              <li>Right Mindfulness (<span class="pali">samma-sati</span>) &#8211; <a
+                      href="#foundations">The
+                Four Foundations
+                of Mindfulness</a></li>
+              <li>Right Concentration (<span class="pali">samma-samadhi)</span> &#8211; <a
+                      href="#formjhanas">The
+                Four Form
+                Jhanas</a></li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l3ce" data-menu-text="3 Characteristics">
+          <div class="simple" data-menu-text="3 Characteristics">
+            <h3>Three Characteristics of Existence</h3>
+            <ol>
+              <li>Things change.</li>
+              <li>It hurts.</li>
+              <li>Don't take it personally.</li>
+            </ol>
+          </div>
+          <div class="common" data-menu-text="Three Characteristics">
+            <h3>Three Characteristics of Existence (of Conditioned Phenomena)</h3>
+            <ol>
+              <li>Impermanence (<span class="pali">anicca</span>)</li>
+              <li>Unsatisfactoriness (<span class="pali">dukkha</span>)</li>
+              <li><a href="http://www.accesstoinsight.org/lib/authors/thanissaro/notself2.html"
+                     target="_blank">Not-self</a>
+                (<span class="pali">anatta</span>) &#8211; empty of inherent existence; not &#8220;me&#8221;,
+                &#8220;myself&#8221;, nor &#8220;what I am&#8221;</li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l3pd" data-menu-text="3 Grounds of Merit">
+          <div class="simple"><h3>Three Grounds for Merit</h3>
+            <ol>
+              <li>Generosity</li>
+              <li>Healthy restraint</li>
+              <li>Meditation</li>
+            </ol>
+          </div>
+          <div class="common"><h3>Three Pillars of Dhamma <span class="pali">(dharma</span>) or Grounds for Making
+            Merit</h3>
+            <ol>
+              <li>Generosity (<span class="pali">dana</span>)</li>
+              <li>Moral restraint (<span class="pali">sila</span>)</li>
+              <li>Meditation (<span class="pali">bhavana</span>) &#8211; consists of Concentration (<span
+                      class="pali">samadhi</span>) and Mindfulness (<span class="pali">sati</span>)
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l3poi" data-menu-text="3 Poisons">
+          <div class="simple">
+            <h3>Three Poisons</h3>
+            <ol>
+              <li>Greed</li>
+              <li>Aversion</li>
+              <li>Delusion</li>
+            </ol>
+          </div>
+          <div class="common">
+            <h3>Three Poisons/Defilements (<span class="pali">Kilesas</span> &#8211; lit. torments
+              of the mind)</h3>
+            <ol>
+              <li>Greed (<span class="pali">lobha</span>) &#8211; mindfulness transforms this into Faith</li>
+              <li>Aversion/hatred (<span class="pali">dosa</span>) &#8211; mindfulness transforms this into
+                discriminating Wisdom
+              </li>
+              <li>Delusion (<span class="pali">moha</span>) &#8211; mindfulness transforms this into
+                Equanimity
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l3refuges" data-menu-text="3 Refuges">
+          <div class="simple">
+            <h3>Three Refuges</h3>
+            <ol>
+              <li>Buddha</li>
+              <li>Dharma</li>
+              <li>Sangha</li>
+            </ol>
+          </div>
+          <div class="common">
+            <h3>Three Refuges <span class="pali">(Triple Gem, Three Jewels)</span></h3>
+            <ol>
+              <li>Buddha &#8211; both the historical Buddha and one&#8217;s own innate potential for Awakening
+              </li>
+              <li>Dhamma &#8211; the Buddha’s teaching of liberation and the ultimate Truth towards which it
+                points
+              </li>
+              <li>Sangha &#8211; the monastic community, those who have achieved at least some degree of
+                Awakening,
+                and more recently the community of followers of the Buddhist path (traditionally called
+                the <span
+                        class="pali">Parisa)</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l3td" data-menu-text="3 Kinds of Suffering">
+          <div class="simple"><h3>3 Types of Suffering</h3>
+            <ol>
+              <li>Physical or mental pain</li>
+              <li>Oppressive nature of continuous upkeep   </li>
+              <li>Pleasant and happy conditions in life are not permanent  </li>
+            </ol>
+          </div>
+          <div class="common"><h3>Three Types of <span class="pali">Dukkha</span></h3>
+            <ol>
+              <li><span class="pali">Dukkha</span> as pain (<span class="pali">dukkha</span>&#8211;<span
+                      class="pali">dukkhata</span>)
+                – body or mental pain
+              </li>
+              <li><span class="pali">Dukkha</span> that is inherent in formation (<span
+                      class="pali">sankhara-dukkhata</span>) – maintenance of body and
+                things, oppressive nature of continuous upkeep
+              </li>
+              <li><span class="pali">Dukkha</span> of change (<span class="pali">viparinama-dukkhata</span>)
+                &#8211;
+                pleasant and happy conditions in
+                life are not permanent
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l4se" data-menu-text="4 Bases of Power">
+          <div class="simple"><h3>4 Bases of Power</h3>
+            <ol>
+              <li>Desire</li>
+              <li>Persistence</li>
+              <li>Intention</li>
+              <li>Curiosity</li>
+            </ol>
+          </div>
+          <div class="common"><h3>Four Bases of Power or Four Stages of Enlightenment
+            (<span class="pali">Iddhipada</span>)</h3>
+            <ol>
+              <li>Desire <span class="pali">(chanda)</span></li>
+              <li>Persistence/Energy/Effort <span class="pali">(viriya)</span></li>
+              <li>Intention, Mind, Thoughtfulness <span class="pali">(citta)</span></li>
+              <li>Investigation/Discrimination <span class="pali">(vimamsa or panna)</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l4ha" data-menu-text="4 Attitudes">
+          <div class="simple"><h3>4 Attitudes</h3>
+            <ol>
+              <li>Lovingkindness</li>
+              <li>Compassion</li>
+              <li>Empathetic joy</li>
+              <li>Equanimity</li>
+            </ol>
+          </div>
+          <div class="common"><h3>Four <span class="pali">Brahma-viharas</span> (Highest Attitudes/Emotions)</h3>
+            <p>Heavenly or sublime abodes (best home). Near enemy is a quality that can masquerade as the
+              original,
+              but
+              is not the original. Far enemy is the opposite quality.</p>
+            <ol>
+              <li>Lovingkindness, good-will (<span class="pali">metta</span>): Near enemy &#8211; attachment;
+                far
+                enemy &#8211; hatred
+              </li>
+              <li>Compassion (<span class="pali">karuna</span>): Near enemy &#8211; pity; far enemy &#8211;
+                cruelty
+              </li>
+              <li>Sympathetic joy, Appreciation (<span class="pali">mudita</span>), joy at the good fortune of
+                others:
+                Near enemy
+                &#8211; comparison,hypocrisy, insincerity, joy for others but tinged with identification (my
+                team,
+                my child); far enemy &#8211; envy
+              </li>
+              <li>Equanimity (<span class="pali">upekkha</span>): Near enemy &#8211; indifference; far enemy
+                &#8211;
+                anxiety, greed
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l4fm" data-menu-text="4 Foundations of Mindfulness">
+          <div class="simple"><h3><a name="foundations"></a>Four Foundations of Mindfulness</h3>
+            <ol>
+              <li>Mindfulness of the body</li>
+              <li>Mindfulness of feeling tone</li>
+              <li>Mindfulness of moods</li>
+              <li>Mindfulness of mental processes</li>
+            </ol>
+          </div>
+          <div class="common"><h3><a name="foundations"></a>Four Foundations of Mindfulness</h3>
+            <p>(from the <span class="pali">Satipatthana Sutta</span>)</p>
+            <ol>
+              <li>Mindfulness of the body (<span class="pali">kaya</span>)</li>
+              <li>Mindfulness of feeling (<span class="pali">vedana</span>)-pleasant, unpleasant, neutral;
+                initial
+                reactions to sensory
+                input
+              </li>
+              <li>Mindfulness of mind/consciousness (<span class="pali">citta</span>), of the mind-states,
+                moods
+                (greed, aversion,
+                delusion and their opposites)
+              </li>
+              <li>Mindfulness of mind objects-mental events (<span class="pali">dharmas</span>); Five
+                categories
+                of
+                dhammas: Five
+                hindrances, Five aggregates, 6 sense bases, Seven factors of enlightenment, Four Noble
+                Truths
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l4ma" data-menu-text="4 States of Concentration">
+          <div class="common">
+            <h3><a name="formjhanas"></a>Four Form Jhanas (<span class="pali">rupa jhanas) </span>
+              or Meditative Absorptions</h3>
+            <ol>
+              <li> First Jhana, characterized by intense pleasure, has five jhanic factors: applied
+                thought <span
+                        class="pali">(vittaka)</span>, sustained thought<span class="pali">(vicara), </span>joy
+                <span class="pali">(piti), </span>happiness <span class="pali">(sukha)</span>,
+                one-pointednesss
+                <span class="pali">(ekkagata)</span></li>
+              <li>Second Jhana, characterized by joy<span class="pali">,</span> has 3 factors: joy<span
+                      class="pali"> <span class="pali">(piti)</span>, </span>happiness<span
+                      class="pali"> (<span
+                      class="pali">sukha</span>) , </span>and<span class="pali"> </span>one<span class="pali">
+                        &#8211;</span>pointedness<span class="pali"> <span class="pali">(ekkagata)</span></span></li>
+              <li>Third Jhana, characterized by contentment, has 2 factors: contentment and
+                one-pointedness <span
+                        class="pali">(ekkagata)</span></li>
+              <li>Fourth Jhana, characterized by equanimity and stillness, has 1 factor: one-pointedness <span
+                      class="pali">(ekkagata)</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l4hm" data-menu-text="4 Messengers">
+          <div class="common"><h3>Four Heavenly Messengers</h3>
+            <ol>
+              <li>An old person</li>
+              <li>A sick person</li>
+              <li>A corpse</li>
+              <li>A wandering monk</li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l4re" data-menu-text="4 Efforts">
+          <div class="simple"><h3>4 Efforts</h3>
+            <ol>
+              <li>Avoid new unskillful thoughts</li>
+              <li>Release existing unskillful thoughts</li>
+              <li>Develop new skillful thoughts</li>
+              <li>Sustain existing skillful thoughts</li>
+            </ol>
+          </div>
+          <div class="common"><h3>Four Right Efforts (<span class="pali">sammappadhana</span>)</h3>
+            <p>This is part of the 8-fold Path.</p>
+            <ol>
+              <li>Not to let an unwholesome-unskillful thought arise, which has not yet arisen-Guarding</li>
+              <li>Not to let an unwholesome-unskillful thought continue, which has already arisen-Abandon</li>
+              <li>To make a wholesome-skillful thought arise, which has not yet arisen-Develop</li>
+              <li>To make a wholesome-skillful thought continue, which has already arisen-Sustain</li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l4obstruct" data-menu-text="4 Weights">
+          <div class="common"><h3>Four Taints, effluents, intoxicants, fermentations, cankers,
+            defilements (<span class="pali">asavas</span>)</h3>
+            <p>Obstructions to Enlightenment (most suttas don&#8217;t include the 4th taint)</p>
+            <ol>
+              <li>attachment to sensuality</li>
+              <li>attachment to existence/to becoming</li>
+              <li>ignorance of the dhamma (of the way things are)</li>
+              <li>attachment to opinions/views (most Suttas do not include this one-Abhidhamma does)</li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l5agg" data-menu-text="5 Collections">
+          <div class="common"><h3>Five Aggregates (<span class="pali">khandhas</span> or <span
+                  class="pali">skandas</span> or heaps)</h3>
+            <p>Physical and mental components of the personality (ego) and of sensory experience in general</p>
+            <ol>
+              <li>Form/physical phenomena, body (<span class="pali">rupa</span> )</li>
+              <li>Feeling (<span class="pali">vedana</span> ) pleasant, unpleasant, neutral. Feelings arise
+                when
+                there
+                is contact
+                between the 6 internal organs and the 6 external objects: (eye, ear, nose, tongue, body,
+                mind
+                &amp;
+                corresponding: sight, sound, odor, taste touch, mental object)
+              </li>
+              <li>Perception (<span class="pali">sañña</span>) &#8211; recognition</li>
+              <li>Mental Formations (<span class="pali">sankhara</span>) &#8211; includes mental states,
+                emotions,
+                volition
+                (fabrications)
+              </li>
+              <li>Consciousness (<span class="pali">viññana</span>) &#8211; grasps the characteristics of the
+                6
+                external objects
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l5fac" data-menu-text="5 Faculties">
+          <div class="common"><h3>Five Faculties (<span class="pali">indriya</span>) and Five Strengths or Powers
+          </h3>
+            <p>Faith &amp; Wisdom balance each other, as do Energy &amp; Concentration. The Five Faculties are
+              ‘controlling' faculties because they control or master their
+              opposites. The faculties and powers are two aspects of the same thing.</p>
+            <ol>
+              <li>Faith (<span class="pali">saddha</span>) &#8211; controls doubt</li>
+              <li>Energy/Effort/Persistence (<span class="pali">viriya</span>) – controls laziness</li>
+              <li>Mindfulness (<span class="pali">sati</span>); &#8211; controls heedlessness</li>
+              <li>Concentration (<span class="pali">samadhi</span>) &#8211; controls distraction</li>
+              <li>Wisdom (<span class="pali">panna</span>)/Discernment – controls ignorance</li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l5hind" data-menu-text="5 Hindrances">
+          <div class="common"><h3>Five Hindrances (<span class="pali">nivarana</span>)</h3>
+            <ol>
+              <li>Sensual Desire <span class="pali">(kámacchanda)</span></li>
+              <li>Aversion or Ill-will <span class="pali">(vyápáda)</span></li>
+              <li>Sleepiness – sloth (<span class="pali">thina</span>), torpor (<span
+                      class="pali">middha</span>),
+                sluggishness
+              </li>
+              <li>Restlessness &#8211; worry about the future, regret of the past, anxiety
+                <span class="pali">(uddhacca-kukkucca)</span></li>
+              <li>Doubt (skeptical doubt)<span class="pali">(vicikicchá)</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l5pre"  data-menu-text="5 Precepts">
+          <div class="common"><h3>Five Precepts</h3>
+            <ol>
+              <li>To refrain from killing</li>
+              <li>To refrain from stealing (taking that which is not offered)</li>
+              <li>To refrain from sexual misconduct</li>
+              <li>To refrain from lying, harsh speech, idle speech, and slander</li>
+              <li>To refrain from taking intoxicants that cloud the mind and cause heedlessness</li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l5dr"  data-menu-text="5 Recollections">
+          <div class="common"><h3>Five Daily Recollections</h3>
+            <ol>
+              <li>I am of the nature to grow old; I cannot avoid aging.</li>
+              <li>I am of the nature to become ill or injured; I cannot avoid illness or injury</li>
+              <li>I am of the nature to die; I cannot avoid death.</li>
+              <li>All that is mine, dear and delightful, will change and vanish.</li>
+              <li>I am the owner of my actions; <br/>
+                I am born of my actions;<br/>
+                I am related to my actions;<br/>
+                I am supported by my actions; <br/>
+                Any thoughts, words or deeds I do, good or evil, those I will inherit.
+              </li>
+            </ol>
+            <p><span class="pali">from AN V.57 Upajjhatthana Sutta: Subjects for Contemplation</span></p>
+          </div>
+        </div>
+        <div class="list" id="l5awake"  data-menu-text="5 Things">
+          <div class="common"><h3>Five Things That Lead to Awakening</h3>
+            <ol>
+              <li>Admirable friends</li>
+              <li><span class="pali">Sila</span> (morality, virtue)</li>
+              <li>Hearing the <span class="pali">dharma</span></li>
+              <li>Exertion. Effort in abandoning unskillful qualities and cultivating skillful ones</li>
+              <li>Awareness of impermanence (<span class="pali">anicca) &#8211;</span> Insight into
+                impermanence
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l6senses"  data-menu-text="6 Senses">
+          <div class="common"><h3>Six Senses</h3>
+            <ol>
+              <li>Seeing</li>
+              <li>Hearing</li>
+              <li>Smelling</li>
+              <li>Tasting</li>
+              <li>Touching</li>
+              <li>Thinking</li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l7factors"  data-menu-text="7 Factors of Awakening">
+          <div class="common"><h3>Seven Factors of Enlightenment <span class="pali">(bojjhanga)</span></h3>
+            <h4>Neutral</h4>
+            <ol>
+              <li>Mindfulness (<span class="pali">sati</span>)</li>
+            </ol>
+            <h4>Arousing</h4>
+            <ol start="2">
+              <li>Investigation of Phenomena<span class="pali"> (dhamma vicaya</span>)-Wisdom Factor:
+                seeing <span
+                        class="pali">anicca, anatta, dukkha</span>; how mind body operates
+              </li>
+              <li>Energy/Effort (<span class="pali">viriya</span>)</li>
+              <li>Rapture, Joy-intense interest in object (<span class="pali">piti</span>)</li>
+            </ol>
+            <h4>Calming</h4>
+            <ol start="5">
+              <li>Calm/tranquility (<span class="pali">passaddhi</span>)</li>
+              <li>Concentration (<span class="pali">samadhi</span>)</li>
+              <li>Equanimity (<span class="pali">upekkha</span>)</li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l8worldly"  data-menu-text="8 Worldly Concerns">
+          <div class="common"><h3>Eight Worldly Dhammas (Conditions, Concerns)</h3>
+            <p>These conditions are inconstant &amp; impermanent.</p>
+            <ul>
+              <li>Gain and Loss</li>
+              <li>Pleasure and Pain</li>
+              <li>Praise and Blame</li>
+              <li>Fame and Disrepute (status/disgrace)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="list" id="l10perfect" data-menu-text="10 Perfections">
+          <div class="common"><h3>Ten Perfections (<span class="pali">Paramis/Paramitas</span>)</h3>
+            <p>Ten qualities leading to Buddhahood</p>
+            <ol>
+              <li>Generosity (<span class="pali">dana</span>)</li>
+              <li>Morality (<span class="pali">sila</span>)-virtue, integrity</li>
+              <li>Renunciation (<span class="pali">nekkhamma</span>)</li>
+              <li>Wisdom (<span class="pali">pañña</span>)</li>
+              <li>Energy/Strength (<span class="pali">viriya</span>)- effort</li>
+              <li>Patience (<span class="pali">khanti</span>)</li>
+              <li>Truthfulness (<span class="pali">sacca</span>)</li>
+              <li>Resolution &#8211; determination (<span class="pali">adhitthana</span>)</li>
+              <li>Lovingkindness (<span class="pali">metta</span>)</li>
+              <li>Equanimity (<span class="pali">upekkha</span>)</li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l10knots" data-menu-text="10 Knots">
+          <div class="common"><h3>Ten Knots (<span class="pali">samyojana</span>)</h3>
+            <ol>
+              <li>Self-identity beliefs</li>
+              <li>Doubt</li>
+              <li>Clinging to rites and rituals</li>
+              <li>Sensual craving</li>
+              <li>Ill will</li>
+              <li>Attachment to the form</li>
+              <li>Attachment to formless phenomena</li>
+              <li>Conceit (<span class="pali">mána</span>, literally measuring-as measuring oneself and
+                comparing
+                to
+                others)- (a subtle
+                sense of self)
+              </li>
+              <li>Restlessness</li>
+              <li>Ignorance (with regard to the Four Noble Truths)</li>
+            </ol>
+            <p><strong>Note:</strong> The first 3 fetters are cognitive (understanding), the next 2 are
+              affective
+              (emotional), the last 5 are Transcendent</p></div>
+        </div>
+        <div class="list" id="l4stages"  data-menu-text="4 Stages of Awakening">
+          <div class="common"><h3>Four Stages of Enlightenment</h3>
+            <ol>
+              <li>The Stream-enterer (<span class="pali">sotapanna</span>)-has eradicated the first three
+                fetters;
+                will be enlightened
+                in Seven lives or less (cognitive, understanding)
+              </li>
+              <li>The Once-returner (<span class="pali">sakadagami</span>) has eradicated the first three
+                &amp;
+                weakened the fourth and
+                fifth (affective, emotional)
+              </li>
+              <li>The Non-returner (<span class="pali">anagami</span>) has eradicated the first five fetters
+              </li>
+              <li>The <span class="pali">Arahat</span> has eradicated all ten fetters. (transcendent-has
+                eliminated
+                attachment to
+                altered states)
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="list" id="l12do"  data-menu-text="12 Links of Dependent Origination">
+          <div class="common"><h3>Twelve Links of Dependent Origination-
+            Dependent Co-arising (<span class="pali">Paticca-Samuppada</span>)</h3>
+            <p>The doctrine of the conditionality of all physical &amp; mental phenomena; how ignorance
+              conditions
+              old age,disease and death</p>
+            <ul>
+              <li>From ignorance (<span class="pali">avijja</span>) come karma
+                formations/fabrications/volitional
+                formations (<span class="pali">sankhara</span>)
+              </li>
+              <li>From karma formations comes consciousness (<span class="pali">viññana</span>)</li>
+              <li>From consciousness comes mind and matter (<span class="pali">nama-rupa</span>)</li>
+              <li>From mind and matter come the six senses (<span class="pali">salayatana</span>)</li>
+              <li>From the six senses comes contact (<span class="pali">phassa</span>)</li>
+              <li>From contact comes feeling (<span class="pali">vedana)</span></li>
+              <li>From feeling comes craving (<span class="pali">tanha)</span></li>
+              <li>From craving comes clinging (<span class="pali">upadana)</span></li>
+              <li>From clinging comes becoming/existence (<span class="pali">bhava)</span></li>
+              <li>From becoming/existence comes birth (<span class="pali">jati)</span></li>
+              <li>From birth, then aging &amp; death</li>
+            </ul>
+          </div>
+        </div>
+        <div class="list" id="l12tda" data-menu-text="12 Links of Transcendental Arising">
+          <div class="common"><h3>Twelve Links of Transcendental Dependent Arising</h3>
+            <p>This continues from the 12 &#8220;mundane&#8221; links of dependent origination, the last one
+              being <span
+                      class="pali">dukkha </span>(or
+              suffering) instead of &#8220;birth, aging and death&#8221;.</p>
+            <ul>
+              <li>Suffering (<span class="pali">dukkha)</span></li>
+              <li>Faith (<span class="pali">saddha</span>)</li>
+              <li>Joy (<span class="pali">pamojja</span>)</li>
+              <li>Rapture (<span class="pali">piti</span>)</li>
+              <li>Tranquility (<span class="pali">passaddhi</span>)</li>
+              <li>Happiness (<span class="pali">sukha</span>)</li>
+              <li>Concentration (<span class="pali">samadhi</span>)</li>
+              <li>Knowledge and vision of things as they are (<span class="pali">yathabhutañanadassana</span>)
+              </li>
+              <li>Disenchantment (<span class="pali">nibbida</span>)</li>
+              <li>Dispassion (<span class="pali">viraga</span>)</li>
+              <li>Emancipation (<span class="pali">vimutti</span>)</li>
+              <li>Knowledge of destruction of the cankers (<span class="pali">asavakkhaye</span> <span
+                      class="pali">ñana</span>)
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="list" id="l37fact"  data-menu-text="37 Wings of Awakening">
+          <div class="common">
+            <h3>37 Factors of Enlightenment or Wings of Awakening(<span class="pali">bodhipakkhiya-dhammá</span>)
+            </h3>
+            <p>The set of teachings that the Buddha himself said formed the heart of his message.</p>
+            <ul>
+              <li>Four Foundations of Mindfulness (<span class="pali">satipatthana</span>)</li>
+              <li>Four Right Efforts (<span class="pali">sammappadhana</span>)</li>
+              <li>Four Bases of Power (<span class="pali">iddhipada</span>)</li>
+              <li>Five Faculties (<span class="pali">indriya</span>)</li>
+              <li>Five Strengths (<span class="pali">bala</span>)</li>
+              <li>Seven Factors of Enlightenment (<span class="pali">bojjhanga</span>)</li>
+              <li>Eight Fold Path (<span class="pali">ariya-magga</span>)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><!-- / wrapper -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB9tCM2fUmnB2pmLJ-I4X_SxT4bCAo7tDg",
+        authDomain: "lists-7e06f.firebaseapp.com",
+        databaseURL: "https://lists-7e06f.firebaseio.com",
+        projectId: "lists-7e06f",
+        storageBucket: "lists-7e06f.appspot.com",
+        messagingSenderId: "552205977155"
+      };
+      firebase.initializeApp(config);
+    </script>
+   </body>
+</html>
